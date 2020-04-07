@@ -23,5 +23,8 @@
         "resolve-url-loader": "^3.1.0",
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0"
+    },
+    "dependencies": {
+        "react-router-dom": "^5.1.2"
     }
 }

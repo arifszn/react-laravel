@@ -13,8 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'LoginController@redirectToIndex');
+
+Route::get('/user/login', 'LoginController@index')->name('Login');
+Route::get('/user/registration', 'LoginController@index');
+
+//Route::get('/user/{path?}', 'LoginController@index')->name('Login');
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
