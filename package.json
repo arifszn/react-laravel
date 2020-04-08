@@ -27,6 +27,8 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
+        "animate.css": "^3.7.2",
+        "react-animations": "^1.0.0",
         "react-router-dom": "^5.1.2",
         "simple-react-validator": "^1.4.5",
         "validator": "^13.0.0"
