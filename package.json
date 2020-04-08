@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@babel/plugin-proposal-class-properties": "^7.2.3",
-        "@babel/preset-env": "^7.2.3",
+        "@babel/preset-env": "^7.9.5",
         "@babel/preset-react": "^7.0.0",
         "axios": "^0.19",
         "bootstrap": "^4.0.0",
@@ -28,7 +28,6 @@
     },
     "dependencies": {
         "react-router-dom": "^5.1.2",
-        "react-validation": "^3.0.7",
         "validator": "^13.0.0"
     },
     "babel": {

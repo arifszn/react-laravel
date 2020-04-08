@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+
 class Registration extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            
         }
 
     }
+
 
     render() {
         return (
@@ -19,38 +21,24 @@ class Registration extends Component {
                             <div className="col-lg-4 mx-auto">
                                 <div className="auth-form-light text-left p-5">
                                     <div className="brand-logo">
-                                        <h1 className="text-center" style={{ color: '#da8cff' }}>SZN</h1>
+                                        <h1 className="text-center" style={{color: '#da8cff'}}>{global.variables.site_name}</h1>
                                     </div>
                                     <h4>New here?</h4>
-                                    <h6 className="font-weight-light">Signing up is easy. It only takes a few steps</h6>
-                                    <form className="pt-3">
+                                    <form className="pt-3" ref={c => { this.form = c }} >
                                         <div className="form-group">
-                                            <input type="text" className="form-control form-control-lg" id="exampleInputUsername1" placeholder="Username" />
+                                            <input type="text" className="form-control form-control-lg" name="first_name" id="first_name" placeholder="First Name" />
                                         </div>
                                         <div className="form-group">
-                                            <input type="email" className="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email" />
+                                            <input type="email" className="form-control form-control-lg" name="email" id="email" placeholder="Email" />
                                         </div>
                                         <div className="form-group">
-                                            <select className="form-control form-control-lg" id="exampleFormControlSelect2">
-                                                <option>Country</option>
-                                                <option>United States of America</option>
-                                                <option>United Kingdom</option>
-                                                <option>India</option>
-                                                <option>Germany</option>
-                                                <option>Argentina</option>
-                                            </select>
+                                            <input type="password" className="form-control form-control-lg" name="password" id="password" placeholder="Password" />
                                         </div>
                                         <div className="form-group">
-                                            <input type="password" className="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" />
-                                        </div>
-                                        <div className="mb-4">
-                                            <div className="form-check">
-                                                <label className="form-check-label text-muted">
-                                                    <input type="checkbox" className="form-check-input" /> I agree to all Terms & Conditions </label>
-                                            </div>
+                                            <input type="password" className="form-control form-control-lg" name="confirm_password" id="confirm_password" placeholder="Confirm Password" />
                                         </div>
                                         <div className="mt-3">
-                                            <a className="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="#">SIGN UP</a>
+                                            <button type="submit" className="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" >SIGN UP</button>
                                         </div>
                                         <div className="text-center mt-4 font-weight-light"> Already have an account? <Link to='/user/login' className="text-primary">Login</Link>
                                         </div>

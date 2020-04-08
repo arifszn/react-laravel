@@ -7,7 +7,7 @@ class Login extends Component {
         this.state = {
 
         }
-
+        
     }
 
     render() {
@@ -19,7 +19,7 @@ class Login extends Component {
                             <div className="col-lg-4 mx-auto">
                                 <div className="auth-form-light text-left p-5">
                                     <div className="brand-logo">
-                                        <h1 style={{color: '#da8cff'}}>SZN</h1>
+                                        <h1 className="text-center" style={{color: '#da8cff'}}>{global.variables.site_name}</h1>
                                     </div>
                                     <h4>Hello! let's get started</h4>
                                     <form className="pt-3">

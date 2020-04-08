@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Login from '../components/Login'
 import Registration from '../components/Registration'
-
+import '../variables'
 
 class App extends Component {
   render() {
