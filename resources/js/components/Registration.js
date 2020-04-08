@@ -57,8 +57,11 @@ class Registration extends Component {
 
     onSubmitHandle = (e) =>{
         e.preventDefault();
+        
         if (this.validator.allValid()) {
-            alert('You submitted the form and stuff!');
+            axios.post('/api/v1/user/signup', $(e.target).serialize()).then(response => {
+                console.log(response.data);
+            });
         } else {
             this.validator.showMessages();
         }
