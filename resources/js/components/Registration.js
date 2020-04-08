@@ -14,7 +14,7 @@ class Registration extends Component {
         
         this.validator = new SimpleReactValidator({
             autoForceUpdate: this,
-            className: 'text-danger',
+            className: 'small text-danger',
             messages: {
                 // email: 'That is not an email.',
             },
@@ -81,11 +81,11 @@ class Registration extends Component {
                                         <div className="form-group">
                                             <input type="text" className="form-control form-control-lg" name="full_name" id="full_name" placeholder="Full Name" value={this.state.full_name} onChange={this.onChangeHandle}/>
                                             {this.validator.message('full name', this.state.full_name, 'required', {
-                                                className: 'text-danger custom-class'
+                                                className: 'small text-danger custom-class'
                                             })}
                                         </div>
                                         <div className="form-group">
-                                            <input type="email" className="form-control form-control-lg" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.onChangeHandle}/>
+                                            <input type="text" className="form-control form-control-lg" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.onChangeHandle}/>
                                             {this.validator.message('email', this.state.email, 'required|email')}
                                         </div>
                                         <div className="form-group">

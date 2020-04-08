@@ -32868,7 +32868,7 @@ var Registration = /*#__PURE__*/function (_Component) {
     };
     _this.validator = new simple_react_validator__WEBPACK_IMPORTED_MODULE_2___default.a({
       autoForceUpdate: _assertThisInitialized(_this),
-      className: 'text-danger',
+      className: 'small text-danger',
       messages: {// email: 'That is not an email.',
       },
       validators: {
@@ -32948,11 +32948,11 @@ var Registration = /*#__PURE__*/function (_Component) {
         value: this.state.full_name,
         onChange: this.onChangeHandle
       }), this.validator.message('full name', this.state.full_name, 'required', {
-        className: 'text-danger custom-class'
+        className: 'small text-danger custom-class'
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "email",
+        type: "text",
         className: "form-control form-control-lg",
         name: "email",
         id: "email",
