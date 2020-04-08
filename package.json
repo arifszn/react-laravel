@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "react-router-dom": "^5.1.2",
+        "simple-react-validator": "^1.4.5",
         "validator": "^13.0.0"
     },
     "babel": {

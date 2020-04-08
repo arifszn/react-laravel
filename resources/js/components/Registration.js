@@ -1,12 +1,65 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
+import SimpleReactValidator from 'simple-react-validator';
 
 class Registration extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            
+            full_name: '',
+            email: '',
+            password: '',
+            confirm_password: ''
+        }
+        
+        this.validator = new SimpleReactValidator({
+            autoForceUpdate: this,
+            className: 'text-danger',
+            messages: {
+                // email: 'That is not an email.',
+            },
+            validators: {
+                customShortPassword: { // name the rule
+                    message: 'The :attribute must be longer than 4', // give a message that will display when there is an error. :attribute will be replaced by the name you supply in calling it.
+                    rule: function(val, params, validator) { // return true if it is succeeds and false it if fails validation.
+                        if (val.length < 5) {
+                            return false;
+                        }
+                        return true;
+                    }
+                },
+                confirmPassword: {
+                    message: 'The :attribute must be same be same as password', // give a message that will display when there is an error. :attribute will be replaced by the name you supply in calling it.
+                    rule: function(val, params, validator) { // return true if it is succeeds and false it if fails validation.
+                        if (val !== params[0]) {
+                            return false;
+                        }
+                        return true;
+                    }
+                }
+            }
+        });
+    }
+
+    componentDidMount() {
+        document.title = 'Registration';
+    }
+
+    onChangeHandle = (e) =>{
+        const { name, value } = e.target;
+
+        this.setState({
+            [name] : value
+        });
+
+    }
+
+    onSubmitHandle = (e) =>{
+        e.preventDefault();
+        if (this.validator.allValid()) {
+            alert('You submitted the form and stuff!');
+        } else {
+            this.validator.showMessages();
         }
 
     }
@@ -24,18 +77,24 @@ class Registration extends Component {
                                         <h1 className="text-center" style={{color: '#da8cff'}}>{global.variables.site_name}</h1>
                                     </div>
                                     <h4>New here?</h4>
-                                    <form className="pt-3" ref={c => { this.form = c }} >
+                                    <form className="pt-3" ref={c => { this.form = c }} onSubmit={this.onSubmitHandle}>
                                         <div className="form-group">
-                                            <input type="text" className="form-control form-control-lg" name="first_name" id="first_name" placeholder="First Name" />
+                                            <input type="text" className="form-control form-control-lg" name="full_name" id="full_name" placeholder="Full Name" value={this.state.full_name} onChange={this.onChangeHandle}/>
+                                            {this.validator.message('full name', this.state.full_name, 'required', {
+                                                className: 'text-danger custom-class'
+                                            })}
                                         </div>
                                         <div className="form-group">
-                                            <input type="email" className="form-control form-control-lg" name="email" id="email" placeholder="Email" />
+                                            <input type="email" className="form-control form-control-lg" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.onChangeHandle}/>
+                                            {this.validator.message('email', this.state.email, 'required|email')}
                                         </div>
                                         <div className="form-group">
-                                            <input type="password" className="form-control form-control-lg" name="password" id="password" placeholder="Password" />
+                                            <input type="password" className="form-control form-control-lg" name="password" id="password" placeholder="Password" value={this.state.password} onChange={this.onChangeHandle}/>
+                                            {this.validator.message('password', this.state.password, 'required|customShortPassword')}
                                         </div>
                                         <div className="form-group">
-                                            <input type="password" className="form-control form-control-lg" name="confirm_password" id="confirm_password" placeholder="Confirm Password" />
+                                            <input type="password" className="form-control form-control-lg" name="confirm_password" id="confirm_password" placeholder="Confirm Password" value={this.state.confirm_password} onChange={this.onChangeHandle}/>
+                                            {this.validator.message('confirm password', this.state.confirm_password, 'required|confirmPassword:'+this.state.password)}
                                         </div>
                                         <div className="mt-3">
                                             <button type="submit" className="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" >SIGN UP</button>
