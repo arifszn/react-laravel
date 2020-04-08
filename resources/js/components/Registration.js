@@ -7,10 +7,10 @@ class Registration extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            full_name: '',
+            name: '',
             email: '',
             password: '',
-            confirm_password: ''
+            password_confirmation: ''
         }
         
         this.validator = new SimpleReactValidator({
@@ -75,8 +75,8 @@ class Registration extends Component {
                 <h4>New here?</h4>
                 <form className="pt-3" ref={c => { this.form = c }} onSubmit={this.onSubmitHandle}>
                     <div className="form-group">
-                        <input type="text" className="form-control form-control-lg" name="full_name" id="full_name" placeholder="Full Name" value={this.state.full_name} onChange={this.onChangeHandle}/>
-                        {this.validator.message('full name', this.state.full_name, 'required', {
+                        <input type="text" className="form-control form-control-lg" name="name" id="name" placeholder="Full Name" value={this.state.name} onChange={this.onChangeHandle}/>
+                        {this.validator.message('full name', this.state.name, 'required', {
                             className: 'small text-danger custom-class'
                         })}
                     </div>
@@ -89,8 +89,8 @@ class Registration extends Component {
                         {this.validator.message('password', this.state.password, 'required|customShortPassword')}
                     </div>
                     <div className="form-group">
-                        <input type="password" className="form-control form-control-lg" name="confirm_password" id="confirm_password" placeholder="Confirm Password" value={this.state.confirm_password} onChange={this.onChangeHandle}/>
-                        {this.validator.message('confirm password', this.state.confirm_password, 'required|confirmPassword:'+this.state.password)}
+                        <input type="password" className="form-control form-control-lg" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" value={this.state.password_confirmation} onChange={this.onChangeHandle}/>
+                        {this.validator.message('confirm password', this.state.password_confirmation, 'required|confirmPassword:'+this.state.password)}
                     </div>
                     <div className="mt-3">
                         <button type="submit" className="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" >SIGN UP</button>
