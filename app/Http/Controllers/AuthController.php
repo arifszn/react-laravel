@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Auth;
 use Carbon\Carbon;
@@ -11,21 +12,22 @@ use Validator;
 
 class AuthController extends Controller
 {
-    /**
-     * Create user
-     *
-     * @param  [string] name
-     * @param  [string] email
-     * @param  [string] password
-     * @param  [string] password_confirmation
-     * @return [string] message
-     */
+    public function index(Request $request)
+    {
+        return view('login');
+    }
+
+    public function redirectToIndex()
+    {
+        return Redirect(route('Login'));
+    }
+    
     public function signup(Request $request)
     {
         $validate = Validator::make($request->all(), [
             'name' => 'required|string',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|confirmed'
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed'
         ]);
 
         if ($validate->fails()) {
@@ -34,7 +36,7 @@ class AuthController extends Controller
                 'status' => 'validation-error'
             ], 401);
         }
-        
+
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,
@@ -42,40 +44,46 @@ class AuthController extends Controller
             'api_token' => Str::random(80),
         ]);
         $user->save();
-
+        
         $token = Str::random(80);
 
         $user->forceFill([
             'api_token' => hash('sha256', $token),
         ])->save();
 
+        $credentials = request(['email', 'password']);
+        
+        if(!Auth::guard('users')->attempt($credentials))
+            return response()->json([
+                'message' => 'Invalid email or password',
+                'status' => 'error'
+            ], 401);
+        
         return response()->json([
             'message' => $user->api_token,
             'status' => 'success'
         ], 201);
     }
   
-    /**
-     * Login user and create token
-     *
-     * @param  [string] email
-     * @param  [string] password
-     * @param  [boolean] remember_me
-     * @return [string] access_token
-     * @return [string] token_type
-     * @return [string] expires_at
-     */
     public function login(Request $request)
     {
-        $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-            'remember_me' => 'boolean'
+        $validate = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required'
         ]);
-        $credentials = request(['email', 'password']);
-        if(!Auth::attempt($credentials))
+
+        if ($validate->fails()) {
             return response()->json([
-                'message' => 'Unauthorized',
+                'message' => $validate->errors(),
+                'status' => 'validation-error'
+            ], 401);
+        }
+
+        $credentials = request(['email', 'password']);
+        
+        if(!Auth::guard('users')->attempt($credentials))
+            return response()->json([
+                'message' => 'Invalid email or password',
                 'status' => 'error'
             ], 401);
         $user = $request->user();
@@ -86,25 +94,11 @@ class AuthController extends Controller
         ], 201);
     }
   
-    /**
-     * Logout user (Revoke the token)
-     *
-     * @return [string] message
-     */
     public function logout(Request $request)
     {
-        /* $request->user()->token()->revoke();
-        return response()->json([
-            'message' => 'Successfully logged out',
-            'status' => 'success'
-        ]); */
     }
   
-    /**
-     * Get the authenticated User
-     *
-     * @return [json] user object
-     */
+    
     public function user(Request $request)
     {
         return response()->json([
