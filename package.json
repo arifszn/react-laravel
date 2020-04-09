@@ -14,7 +14,7 @@
         "@babel/preset-env": "^7.9.5",
         "@babel/preset-react": "^7.0.0",
         "axios": "^0.19",
-        "bootstrap": "^4.0.0",
+        "bootstrap": "^4.4.1",
         "cross-env": "^7.0",
         "jquery": "^3.2",
         "laravel-mix": "^5.0.1",
@@ -30,6 +30,7 @@
         "animate.css": "^3.7.2",
         "izitoast": "^1.4.0",
         "react-animations": "^1.0.0",
+        "react-bootstrap": "^1.0.0",
         "react-router-dom": "^5.1.2",
         "simple-react-validator": "^1.4.5",
         "validator": "^13.0.0"

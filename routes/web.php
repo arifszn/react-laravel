@@ -24,6 +24,7 @@ Route::get('/clearapp', function () {
 Route::group(['middleware' => ['guest', 'web']], function () {
     Route::get('/', 'AuthController@redirectToIndex');
 
+    //react route
     Route::get('/user/login', 'AuthController@index')->name('Login');
     Route::get('/user/registration', 'AuthController@index');
 
@@ -33,7 +34,11 @@ Route::group(['middleware' => ['guest', 'web']], function () {
 
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
+    Route::get('/logout', 'HomeController@logout')->name('Logout');
     Route::get('/home', 'HomeController@index')->name('Dashboard');
+    
+    //react route
+    Route::get('/leads', 'LeadController@index')->name('Leads');
 });
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

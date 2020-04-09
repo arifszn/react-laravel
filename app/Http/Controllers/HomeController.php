@@ -12,5 +12,10 @@ class HomeController extends Controller
     {
         return view('user.dashboard');
     }
-   
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect(route('Login'));
+    }
 }
