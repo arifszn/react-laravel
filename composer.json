@@ -15,7 +15,8 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
-        "rap2hpoutre/laravel-log-viewer": "^1.4"
+        "rap2hpoutre/laravel-log-viewer": "^1.4",
+        "tegimus/php-izitoast": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",

@@ -20,7 +20,7 @@
                     <i class="mdi mdi-power"></i>
                 </a>
             </li>
-            <li class="nav-item nav-profile dropdown">
+           {{--  <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown"
                     aria-expanded="false">
                     <div class="nav-profile-img">
@@ -38,7 +38,7 @@
                     <a class="dropdown-item" href="#">
                         <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
                 </div>
-            </li>
+            </li> --}}
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
             data-toggle="offcanvas">
