@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import moment from 'moment';
 
 class LeadItem extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+        
         this.state = {
 
         }
@@ -30,8 +32,8 @@ class LeadItem extends Component {
                                 <div className="szn-widget__content">
                                     <div className="szn-widget__head">
                                         <a href="#" className="szn-widget__username">
-                                            Jason Muller
-                                            <i className="flaticon2-correct szn-font-success"></i>
+                                            {this.props.obj.name}
+                                            <i className="mdi mdi-checkbox-marked-circle szn-font-success"></i>
                                         </a>
                                         <div className="szn-widget__action">
                                             <button type="button" className="btn btn-outline-success btn-sm btn-upper">ASK</button>&nbsp;
@@ -39,14 +41,13 @@ class LeadItem extends Component {
                                         </div>
                                     </div>
                                     <div className="szn-widget__subhead d-flex flex-column flex-md-row">
-                                        <a href="#"><i className="flaticon2-new-email"></i>jason@siastudio.com</a>
-                                        <a href="#"><i className="flaticon2-calendar-3"></i>PR Manager </a>
-                                        <a href="#"><i className="flaticon2-placeholder"></i>Melbourne</a>
+                                        <a href={void(0)}><i className="mdi mdi-email"></i>{this.props.obj.email}</a>
+                                        <a href={void(0)}><i className="mdi mdi-phone"></i>{this.props.obj.phone} </a>
+                                        { this.props.obj.address ? <a href={void(0)}><i className="mdi mdi-home"></i>{this.props.obj.address}</a> : '' }
                                     </div>
                                     <div className="szn-widget__info">
                                         <div className="szn-widget__desc">
-                                            I distinguish three main text objektive could be merely to inform people.
-                                            <br /> A second could be persuade people.You want people to bay objective
+                                            {this.props.obj.description} 
                                         </div>
                                         <div className="szn-widget__progress">
                                             <div className="szn-widget__text">
@@ -63,55 +64,41 @@ class LeadItem extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="szn-widget__bottom d-flex flex-column flex-md-row ">
+                            <div className="szn-widget__bottom d-flex flex-column flex-md-row">
                                 <div className="szn-widget__item ">
                                     <div className="szn-widget__icon">
-                                        <i className="flaticon-piggy-bank"></i>
+                                        <i className="mdi mdi-currency-usd"></i>
                                     </div>
-                                    <div className="szn-widget__details">
+                                    <div className="szn-widget__details d-flex flex-md-column flex-row">
                                         <span className="szn-widget__title">Earnings</span>
                                         <span className="szn-widget__value"><span>$</span>249,500</span>
                                     </div>
                                 </div>
                                 <div className="szn-widget__item">
                                     <div className="szn-widget__icon">
-                                        <i className="flaticon-confetti"></i>
+                                        <i className="mdi mdi-cart-outline"></i>
                                     </div>
-                                    <div className="szn-widget__details">
+                                    <div className="szn-widget__details d-flex flex-md-column flex-row">
                                         <span className="szn-widget__title">Expenses</span>
                                         <span className="szn-widget__value"><span>$</span>164,700</span>
                                     </div>
                                 </div>
                                 <div className="szn-widget__item">
                                     <div className="szn-widget__icon">
-                                        <i className="flaticon-pie-chart"></i>
+                                        <i className="mdi mdi-chart-arc"></i>
                                     </div>
-                                    <div className="szn-widget__details">
+                                    <div className="szn-widget__details d-flex flex-md-column flex-row">
                                         <span className="szn-widget__title">Net</span>
                                         <span className="szn-widget__value"><span>$</span>782,300</span>
                                     </div>
                                 </div>
                                 <div className="szn-widget__item">
                                     <div className="szn-widget__icon">
-                                        <i className="flaticon-file-2"></i>
+                                        <i className="mdi mdi-calendar"></i>
                                     </div>
-                                    <div className="szn-widget__details">
-                                        <span className="szn-widget__title">73 Tasks</span>
-                                        <a href="#" className="szn-widget__value szn-font-brand">View</a>
-                                    </div>
-                                </div>
-                                <div className="szn-widget__item">
-                                    <div className="szn-widget__icon">
-                                        <i className="flaticon-chat-1"></i>
-                                    </div>
-                                    <div className="szn-widget__details">
-                                        <span className="szn-widget__title">648 Comments</span>
-                                        <a href="#" className="szn-widget__value szn-font-brand">View</a>
-                                    </div>
-                                </div>
-                                <div className="szn-widget__item">
-                                    <div className="szn-widget__icon">
-                                        <i className="flaticon-network"></i>
+                                    <div className="szn-widget__details d-flex flex-md-column flex-row">
+                                        <span className="szn-widget__title">Added On</span>
+                                        <span className="szn-widget__value">{moment(this.props.obj.created_at).fromNow()}</span>
                                     </div>
                                 </div>
                             </div>

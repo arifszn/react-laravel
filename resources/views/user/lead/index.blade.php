@@ -1,18 +1,18 @@
 @section('title')
-    Leads
+Leads
 @endsection
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/Leads.css') }}">
-    <style>
-        
-    </style>
+<link rel="stylesheet" href="{{ asset('css/Leads.css') }}">
+<style>
+    
+</style>
 @endsection
 
 @extends('user.layout.master')
 
 @section('container')
-    <div id="app"></div>
+<div id="app"></div>
 @endsection
 
 @section('scripts')

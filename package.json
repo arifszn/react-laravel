@@ -29,6 +29,7 @@
     "dependencies": {
         "animate.css": "^3.7.2",
         "izitoast": "^1.4.0",
+        "moment": "^2.24.0",
         "react-animations": "^1.0.0",
         "react-bootstrap": "^1.0.0",
         "react-js-pagination": "^3.0.3",
