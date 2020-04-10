@@ -25,20 +25,20 @@ Route::group(['middleware' => ['guest', 'web']], function () {
     Route::get('/', 'AuthController@redirectToIndex');
 
     //react route
-    Route::get('/user/login', 'AuthController@index')->name('Login');
-    Route::get('/user/registration', 'AuthController@index');
+    Route::get('/login', 'AuthController@index')->name('Login');
+    Route::get('/registration', 'AuthController@index');
 
-    Route::post('/user/login', 'AuthController@login');
-    Route::post('/user/registration', 'AuthController@signup');
+    Route::post('/login', 'AuthController@login');
+    Route::post('/registration', 'AuthController@signup');
 });
 
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/logout', 'HomeController@logout')->name('Logout');
     Route::get('/home', 'HomeController@index')->name('Dashboard');
     
     //react route
-    Route::get('/leads', 'LeadController@index')->name('Leads');
+    Route::get('/lead', 'LeadController@index')->name('Leads');
 
 
 

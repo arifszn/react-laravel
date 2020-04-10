@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function index(Request $request)
     {
-        return view('login');
+        return view('user.login');
     }
 
     public function redirectToIndex()

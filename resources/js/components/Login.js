@@ -38,7 +38,7 @@ class Login extends Component {
             this.setState({
                 loading: true
             });
-            axios.post('/user/login', $(e.target).serialize())
+            axios.post('/login', $(e.target).serialize())
             .then(response => {
                 this.setState({
                     loading: false
@@ -61,7 +61,7 @@ class Login extends Component {
                 } else if (response.data.status == 'success') {
                     //save api token
                     //to do
-                   window.location = "/user/home";
+                   window.location = "/home";
                 }
             })
             .catch((error) => {
@@ -127,7 +127,7 @@ class Login extends Component {
                                 </button>
                             </div>
 
-                            <div className="text-center mt-4 font-weight-light"> Don't have an account? <Link to='/user/registration' className="text-primary">Create</Link >
+                            <div className="text-center mt-4 font-weight-light"> Don't have an account? <Link to='/registration' className="text-primary">Create</Link >
                             </div>
                         </form>
                     </div>

@@ -76456,7 +76456,7 @@ var Login = /*#__PURE__*/function (_Component) {
           loading: true
         });
 
-        axios.post('/user/login', $(e.target).serialize()).then(function (response) {
+        axios.post('/login', $(e.target).serialize()).then(function (response) {
           _this.setState({
             loading: false
           });
@@ -76479,7 +76479,7 @@ var Login = /*#__PURE__*/function (_Component) {
           } else if (response.data.status == 'success') {
             //save api token
             //to do
-            window.location = "/user/home";
+            window.location = "/home";
           }
         })["catch"](function (error) {
           _this.setState({
@@ -76585,7 +76585,7 @@ var Login = /*#__PURE__*/function (_Component) {
       }, "SIGN IN")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "text-center mt-4 font-weight-light"
       }, " Don't have an account? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/user/registration",
+        to: "/registration",
         className: "text-primary"
       }, "Create"))))));
     }
@@ -76681,7 +76681,7 @@ var Registration = /*#__PURE__*/function (_Component) {
           loading: true
         });
 
-        axios.post('/user/registration', $(e.target).serialize()).then(function (response) {
+        axios.post('/registration', $(e.target).serialize()).then(function (response) {
           _this.setState({
             loading: false
           });
@@ -76702,9 +76702,7 @@ var Registration = /*#__PURE__*/function (_Component) {
               message: response.data.message
             });
           } else if (response.data.status == 'success') {
-            //save api token
-            //to do
-            window.location = "/user/home";
+            window.location = "/home";
           }
         })["catch"](function (error) {
           _this.setState({
@@ -76863,7 +76861,7 @@ var Registration = /*#__PURE__*/function (_Component) {
       }, "SIGN UP")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "text-center mt-4 font-weight-light"
       }, " Already have an account? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/user/login",
+        to: "/login",
         className: "text-primary"
       }, "Login"))))));
     }
@@ -76966,10 +76964,10 @@ var App = /*#__PURE__*/function (_Component) {
         className: "col-lg-4 mx-auto"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
-        path: "/user/login",
+        path: "/login",
         component: _components_Login__WEBPACK_IMPORTED_MODULE_3__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        path: "/user/registration",
+        path: "/registration",
         component: _components_Registration__WEBPACK_IMPORTED_MODULE_4__["default"]
       }))))))))));
     }

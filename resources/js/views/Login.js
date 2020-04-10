@@ -19,8 +19,8 @@ class App extends Component {
                           <div className="col-lg-4 mx-auto">
                               <div>
                                 <Switch>
-                                  <Route exact path='/user/login' component={Login} />
-                                  <Route path='/user/registration' component={Registration} />
+                                  <Route exact path='/login' component={Login} />
+                                  <Route path='/registration' component={Registration} />
                                 </Switch>
                               </div>
                           </div>

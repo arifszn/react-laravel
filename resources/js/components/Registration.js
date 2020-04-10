@@ -63,7 +63,7 @@ class Registration extends Component {
             this.setState({
                 loading: true
             });
-            axios.post('/user/registration', $(e.target).serialize())
+            axios.post('/registration', $(e.target).serialize())
             .then(response => {
                 this.setState({
                     loading: false
@@ -84,9 +84,8 @@ class Registration extends Component {
                             message : response.data.message
                         });
                 } else if (response.data.status == 'success') {
-                    //save api token
-                    //to do
-                   window.location = "/user/home";
+                    
+                   window.location = "/home";
                 }
             })
             .catch((error) => {
@@ -160,7 +159,7 @@ class Registration extends Component {
                             <div className="mt-3">
                                 <button type="submit" className="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" >SIGN UP</button>
                             </div>
-                            <div className="text-center mt-4 font-weight-light"> Already have an account? <Link to='/user/login' className="text-primary">Login</Link>
+                            <div className="text-center mt-4 font-weight-light"> Already have an account? <Link to='/login' className="text-primary">Login</Link>
                             </div>
                         </form>
                     </div>

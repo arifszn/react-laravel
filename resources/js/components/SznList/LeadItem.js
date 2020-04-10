@@ -4,7 +4,6 @@ import moment from 'moment';
 class LeadItem extends Component {
     constructor(props) {
         super(props);
-        
         this.state = {
 
         }

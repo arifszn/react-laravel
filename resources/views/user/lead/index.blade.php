@@ -16,6 +16,9 @@ Leads
 @endsection
 
 @section('scripts')
+<script>
+    var authUser = @json(Auth::user());
+</script>
 <script src="{{ asset('js/views/Leads.js') }}"></script>
 
 <script type="text/javascript">
