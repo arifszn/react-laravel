@@ -1,8 +1,9 @@
-const setAuthUser = (user) => {
-    return {
-        type: 'SET_AUTH_USER',
-        payload: user
-    }
+import setAuthUser from './setAuthUser'
+import setActiveComponent from './setActiveComponent'
+
+const rootAction = {
+    setAuthUser: setAuthUser,
+    setActiveComponent: setActiveComponent
 };
 
-export default setAuthUser;
+export default rootAction;

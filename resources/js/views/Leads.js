@@ -1,13 +1,14 @@
 require('../app');
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import LeadList from '../components/SznList/LeadList'
+import NewLead from '../components/SznList/NewLead'
 import '../variables'
 import {createStore} from 'redux';
 import rootReducer from '../redux/reducers/index'
-import { Provider, useDispatch } from 'react-redux'
-import setAuthUser from '../redux/actions/index'
+import { Provider, useDispatch, useSelector } from 'react-redux'
+import rootAction from '../redux/actions/index'
 
 //create reducer
 const myStore = createStore(
@@ -19,29 +20,34 @@ const myStore = createStore(
 function App() {
 	//set reducer
 	const myDispatch = useDispatch();
-	myDispatch(setAuthUser(authUser));
+	myDispatch(rootAction.setAuthUser(authUser)); //authUser is from blade file
 
 	//get reducer
-    // const authUser = useSelector(state => state.authUserReducer);
-
+    const activeComponent = useSelector(state => state.activeComponentReducer);
+	
 	return (
 		<React.Fragment>
+			<BrowserRouter>
 			<div className="page-header">
 				<h3 className="page-title"> Basic Tables </h3>
 				<nav aria-label="breadcrumb">
-					<button className="btn btn-gradient-dark btn-md"><i className="mdi mdi mdi-account-plus"></i>&nbsp; New</button>
+					{ activeComponent && activeComponent == 'LeadList' ?  
+						<Link to='/lead/new' className="btn btn-gradient-dark btn-md"><i className="mdi mdi-account-plus btn-icon-prepend"></i>&nbsp; New</Link> : <Link to='/lead' className="btn btn-gradient-info btn-md"><i className="mdi mdi-arrow-left-bold btn-icon-prepend"></i>&nbsp; Back</Link>
+					}
+					
 				</nav>
 			</div>
 			<div className="row">
 				<div className="col-lg-12 grid-margin stretch-card">
-					<BrowserRouter>
+					
 						<Switch>
 							<Route exact path='/lead' > <LeadList /> </Route>
-							<Route exact path='/lead/new' > <LeadList /> </Route>
+							<Route path='/lead/new' > <NewLead /> </Route>
 						</Switch>
-					</BrowserRouter>
+					
 				</div>
 			</div>
+			</BrowserRouter>
 		</React.Fragment>
 	);
 }

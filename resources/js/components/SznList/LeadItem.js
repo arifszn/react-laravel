@@ -35,8 +35,8 @@ class LeadItem extends Component {
                                             <i className="mdi mdi-checkbox-marked-circle szn-font-success"></i>
                                         </a>
                                         <div className="szn-widget__action">
-                                            <button type="button" className="btn btn-outline-success btn-sm btn-upper">ASK</button>&nbsp;
-                                            <button type="button" className="btn btn-gradient-primary btn-sm btn-upper">HIRE</button>
+                                            <button type="button" className="btn btn-outline-success btn-sm btn-upper">Edit</button>&nbsp;
+                                            <button type="button" className="btn btn-gradient-danger btn-sm btn-upper">Delete</button>
                                         </div>
                                     </div>
                                     <div className="szn-widget__subhead d-flex flex-column flex-md-row">
