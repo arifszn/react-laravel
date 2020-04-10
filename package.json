@@ -33,7 +33,9 @@
         "react-animations": "^1.0.0",
         "react-bootstrap": "^1.0.0",
         "react-js-pagination": "^3.0.3",
+        "react-loading-overlay": "^1.0.1",
         "react-router-dom": "^5.1.2",
+        "react-spinners": "^0.8.1",
         "simple-react-validator": "^1.4.5",
         "validator": "^13.0.0"
     },

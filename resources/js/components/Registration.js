@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import SimpleReactValidator from 'simple-react-validator';
 import * as Helpers from '../Helpers'
+import BeatLoader from 'react-spinners/BeatLoader'
+import LoadingOverlay from 'react-loading-overlay';
 
 class Registration extends Component {
     constructor(props) {
@@ -10,7 +12,8 @@ class Registration extends Component {
             name: '',
             email: '',
             password: '',
-            password_confirmation: ''
+            password_confirmation: '',
+            loading: false
         }
         
         this.validator = new SimpleReactValidator({
@@ -57,8 +60,14 @@ class Registration extends Component {
         e.preventDefault();
         
         if (this.validator.allValid()) {
+            this.setState({
+                loading: true
+            });
             axios.post('/user/registration', $(e.target).serialize())
             .then(response => {
+                this.setState({
+                    loading: false
+                });
                 if (response.data.status == 'validation-error') {
                     var errorArray = response.data.message;
                     $.each( errorArray, function( key, errors ) {
@@ -81,6 +90,9 @@ class Registration extends Component {
                 }
             })
             .catch((error) => {
+                this.setState({
+                    loading: false
+                });
                 if (error.response.data.status == 'validation-error') {
                     var errorArray = error.response.data.message;
                     $.each( errorArray, function( key, errors ) {
@@ -108,37 +120,52 @@ class Registration extends Component {
 
     render() {
         return (
-            <div className="auth-form-light text-left p-5 animated fadeIn">
-                <div className="brand-logo">
-                    <h1 className="text-center" style={{color: '#da8cff'}}>{global.variables.site_name}</h1>
-                </div>
-                <h4>New here?</h4>
-                <form className="pt-3" ref={c => { this.form = c }} onSubmit={this.onSubmitHandle}>
-                    <div className="form-group">
-                        <input type="text" className="form-control form-control-lg" name="name" id="name" placeholder="Full Name" value={this.state.name} onChange={this.onChangeHandle}/>
-                        {this.validator.message('full name', this.state.name, 'required', {
-                            className: 'small text-danger custom-class'
-                        })}
+            <React.Fragment>
+                <LoadingOverlay
+                    active={this.state.loading}
+                    spinner={<BeatLoader />}
+                    styles={{
+                        overlay: (base) => ({
+                            ...base,
+                            opacity: '0.5',
+                            filter: 'alpha(opacity=50)',
+                            background: 'white'
+                        })
+                    }}
+                >
+                    <div className="auth-form-light text-left p-5 animated fadeIn">
+                        <div className="brand-logo">
+                            <h1 className="text-center" style={{color: '#da8cff'}}>{global.variables.site_name}</h1>
+                        </div>
+                        <h4>New here?</h4>
+                        <form className="pt-3" ref={c => { this.form = c }} onSubmit={this.onSubmitHandle}>
+                            <div className="form-group">
+                                <input type="text" className="form-control form-control-lg" name="name" id="name" placeholder="Full Name" value={this.state.name} onChange={this.onChangeHandle}/>
+                                {this.validator.message('full name', this.state.name, 'required', {
+                                    className: 'small text-danger custom-class'
+                                })}
+                            </div>
+                            <div className="form-group">
+                                <input type="text" className="form-control form-control-lg" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.onChangeHandle}/>
+                                {this.validator.message('email', this.state.email, 'required|email')}
+                            </div>
+                            <div className="form-group">
+                                <input type="password" className="form-control form-control-lg" name="password" id="password" placeholder="Password" value={this.state.password} onChange={this.onChangeHandle}/>
+                                {this.validator.message('password', this.state.password, 'required|customShortPassword')}
+                            </div>
+                            <div className="form-group">
+                                <input type="password" className="form-control form-control-lg" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" value={this.state.password_confirmation} onChange={this.onChangeHandle}/>
+                                {this.validator.message('confirm password', this.state.password_confirmation, 'required|confirmPassword:'+this.state.password)}
+                            </div>
+                            <div className="mt-3">
+                                <button type="submit" className="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" >SIGN UP</button>
+                            </div>
+                            <div className="text-center mt-4 font-weight-light"> Already have an account? <Link to='/user/login' className="text-primary">Login</Link>
+                            </div>
+                        </form>
                     </div>
-                    <div className="form-group">
-                        <input type="text" className="form-control form-control-lg" name="email" id="email" placeholder="Email" value={this.state.email} onChange={this.onChangeHandle}/>
-                        {this.validator.message('email', this.state.email, 'required|email')}
-                    </div>
-                    <div className="form-group">
-                        <input type="password" className="form-control form-control-lg" name="password" id="password" placeholder="Password" value={this.state.password} onChange={this.onChangeHandle}/>
-                        {this.validator.message('password', this.state.password, 'required|customShortPassword')}
-                    </div>
-                    <div className="form-group">
-                        <input type="password" className="form-control form-control-lg" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" value={this.state.password_confirmation} onChange={this.onChangeHandle}/>
-                        {this.validator.message('confirm password', this.state.password_confirmation, 'required|confirmPassword:'+this.state.password)}
-                    </div>
-                    <div className="mt-3">
-                        <button type="submit" className="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" >SIGN UP</button>
-                    </div>
-                    <div className="text-center mt-4 font-weight-light"> Already have an account? <Link to='/user/login' className="text-primary">Login</Link>
-                    </div>
-                </form>
-            </div>
+                </LoadingOverlay>
+            </React.Fragment>
         )
     }
 }
