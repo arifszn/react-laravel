@@ -39,6 +39,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
     
     //react route
     Route::get('/leads', 'LeadController@index')->name('Leads');
+
+
+
+    
+    Route::get('/test', 'HomeController@test');
+
 });
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

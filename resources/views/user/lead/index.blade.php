@@ -1,11 +1,12 @@
 @section('title')
-Leads
+    Leads
 @endsection
 
 @section('styles')
-<style>
-
-</style>
+    <link rel="stylesheet" href="{{ asset('css/Leads.css') }}">
+    <style>
+        
+    </style>
 @endsection
 
 @extends('user.layout.master')

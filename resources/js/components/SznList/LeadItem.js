@@ -35,10 +35,10 @@ class LeadItem extends Component {
                                         </a>
                                         <div className="szn-widget__action">
                                             <button type="button" className="btn btn-outline-success btn-sm btn-upper">ASK</button>&nbsp;
-                                            <button type="button" className="btn btn-facebook btn-sm btn-upper">HIRE</button>
+                                            <button type="button" className="btn btn-gradient-primary btn-sm btn-upper">HIRE</button>
                                         </div>
                                     </div>
-                                    <div className="szn-widget__subhead">
+                                    <div className="szn-widget__subhead d-flex flex-column flex-md-row">
                                         <a href="#"><i className="flaticon2-new-email"></i>jason@siastudio.com</a>
                                         <a href="#"><i className="flaticon2-calendar-3"></i>PR Manager </a>
                                         <a href="#"><i className="flaticon2-placeholder"></i>Melbourne</a>
@@ -63,8 +63,8 @@ class LeadItem extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="szn-widget__bottom">
-                                <div className="szn-widget__item">
+                            <div className="szn-widget__bottom d-flex flex-column flex-md-row ">
+                                <div className="szn-widget__item ">
                                     <div className="szn-widget__icon">
                                         <i className="flaticon-piggy-bank"></i>
                                     </div>

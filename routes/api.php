@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => ['auth:api'], 'prefix' => 'v1'], function () {
-        
+// Route::group(['middleware' => ['auth:api'], 'prefix' => 'v1'], function () {
+Route::group(['middleware' => [], 'prefix' => 'v1'], function () {
+    Route::get('/lead/list', 'Api\LeadController@listData');
 });
