@@ -29,19 +29,20 @@ function App() {
 		<React.Fragment>
 			<BrowserRouter>
 			<div className="page-header">
-				<h3 className="page-title"> Basic Tables </h3>
+				<h3 className="page-title"> { activeComponent && activeComponent == 'LeadList' ?  
+												'All Leads' : (activeComponent && activeComponent == 'NewLead' ? 'New Lead' : '' )
+											} </h3>
 				<nav aria-label="breadcrumb">
 					{ activeComponent && activeComponent == 'LeadList' ?  
-						<Link to='/lead/new' className="btn btn-gradient-dark btn-md"><i className="mdi mdi-account-plus btn-icon-prepend"></i>&nbsp; New</Link> : <Link to='/lead' className="btn btn-gradient-info btn-md"><i className="mdi mdi-arrow-left-bold btn-icon-prepend"></i>&nbsp; Back</Link>
+						<Link to='/lead/new' className="btn btn-gradient-dark btn-md"><i className="mdi mdi-account-plus btn-icon-prepend"></i>&nbsp; New</Link> : <Link to='/lead/list' className="btn btn-gradient-info btn-md"><i className="mdi mdi-arrow-left-bold btn-icon-prepend"></i>&nbsp; Back</Link>
 					}
-					
 				</nav>
 			</div>
 			<div className="row">
 				<div className="col-lg-12 grid-margin stretch-card">
 					
 						<Switch>
-							<Route exact path='/lead' > <LeadList /> </Route>
+							<Route exact path='/lead/list' > <LeadList /> </Route>
 							<Route path='/lead/new' > <NewLead /> </Route>
 						</Switch>
 					

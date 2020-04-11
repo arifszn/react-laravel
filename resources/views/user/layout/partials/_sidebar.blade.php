@@ -28,8 +28,8 @@
               </a>
               <div class="collapse" id="lead-routes">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="{{ route('Leads') }}">All Leads</a></li>
-                  {{-- <li class="nav-item"> <a class="nav-link" href="#">Typography</a></li> --}}
+                  <li class="nav-item"> <a class="nav-link" href="{{ route('Leads') }}">All</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ route('NewLead') }}">New</a></li>
                 </ul>
               </div>
             </li>

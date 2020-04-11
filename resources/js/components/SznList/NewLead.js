@@ -9,14 +9,14 @@ function NewList(props) {
     const authUser = props.authUserProp;
     
     useEffect(() => {
-        props.setActiveComponentProp('NewList');
+        props.setActiveComponentProp('NewLead');
     }, []);
 
     return (
         <React.Fragment>
             <div className="card">
                 <div className="card-body">
-                    <h4 className="card-title">New Lead</h4>
+                    NEW LEAD HERE   
                     
                 </div>
             </div>

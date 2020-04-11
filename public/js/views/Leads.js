@@ -96542,9 +96542,7 @@ function LeadList(props) {
     className: "card"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-    className: "card-title"
-  }, "All Leads"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pt-3 pb-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: ""
@@ -96673,15 +96671,13 @@ function NewList(props) {
 
   var authUser = props.authUserProp;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    props.setActiveComponentProp('NewList');
+    props.setActiveComponentProp('NewLead');
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-    className: "card-title"
-  }, "New Lead"))));
+  }, "NEW LEAD HERE")));
 }
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -96985,7 +96981,7 @@ function App() {
     className: "page-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     className: "page-title"
-  }, " Basic Tables "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+  }, " ", activeComponent && activeComponent == 'LeadList' ? 'All Leads' : activeComponent && activeComponent == 'NewLead' ? 'New Lead' : '', " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
     "aria-label": "breadcrumb"
   }, activeComponent && activeComponent == 'LeadList' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
     to: "/lead/new",
@@ -96993,7 +96989,7 @@ function App() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "mdi mdi-account-plus btn-icon-prepend"
   }), "\xA0 New") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-    to: "/lead",
+    to: "/lead/list",
     className: "btn btn-gradient-info btn-md"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "mdi mdi-arrow-left-bold btn-icon-prepend"
@@ -97003,7 +96999,7 @@ function App() {
     className: "col-lg-12 grid-margin stretch-card"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
-    path: "/lead"
+    path: "/lead/list"
   }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_SznList_LeadList__WEBPACK_IMPORTED_MODULE_3__["default"], null), " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/lead/new"
   }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_SznList_NewLead__WEBPACK_IMPORTED_MODULE_4__["default"], null), " "))))));

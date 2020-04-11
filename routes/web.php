@@ -26,7 +26,7 @@ Route::group(['middleware' => ['guest', 'web']], function () {
 
     //react route
     Route::get('/login', 'AuthController@index')->name('Login');
-    Route::get('/registration', 'AuthController@index');
+    Route::get('/registration', 'AuthController@index')->name('Registration');
 
     Route::post('/login', 'AuthController@login');
     Route::post('/registration', 'AuthController@signup');
@@ -38,8 +38,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index')->name('Dashboard');
     
     //react route
-    Route::get('/lead', 'LeadController@index')->name('Leads');
-    Route::get('/lead/new', 'LeadController@index')->name('Leads');
+    Route::get('/lead/list', 'LeadController@index')->name('Leads');
+    Route::get('/lead/new', 'LeadController@index')->name('NewLead');
 
 
 

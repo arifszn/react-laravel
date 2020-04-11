@@ -98,7 +98,6 @@ function LeadList(props) {
         <React.Fragment>
             <div className="card">
                 <div className="card-body">
-                    <h4 className="card-title">All Leads</h4>
                     <div className="pt-3 pb-3">
                         <div className="">
                             <div className="d-flex justify-content-between bd-highlight">
