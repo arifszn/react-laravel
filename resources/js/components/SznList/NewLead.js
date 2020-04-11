@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useSelector, connect } from 'react-redux';
 import rootAction from '../../redux/actions/index'
 import { fadeIn } from 'animate.css'
 import BeatLoader from 'react-spinners/BeatLoader'
 import { showSznNotification} from '../../Helpers'
 import LoadingOverlay from 'react-loading-overlay';
+import SimpleReactValidator from 'simple-react-validator';
+import { Link } from 'react-router-dom';
 
-function NewList(props) {
+function NewLead(props) {
     const [state, setState] = useState({
         name: '',
         email: '',
@@ -18,11 +20,17 @@ function NewList(props) {
         earnings: 0.00,
         expenses: 0.00,
         net: 0.00,
-        loading: false
+        loading: false,
     });
-
     //get authUser
     const authUser = props.authUserProp;
+
+    //validator
+    const [, forceUpdate] = useState() //this is a dummy state, when form submitted, change the state so that message is rendered
+    const simpleValidator = useRef(new SimpleReactValidator({
+            autoForceUpdate: {forceUpdate: forceUpdate},
+            className: 'small text-danger mdi mdi-alert pt-1 pl-1'
+    }));
 
     useEffect(() => {
         document.title = 'New Lead';
@@ -41,14 +49,12 @@ function NewList(props) {
     const onSubmitHandle = (e) =>{
         e.preventDefault();
         
-        if (true) {
-            setState({
-                ...state,
-                loading: true
-            });
+        if (simpleValidator.current.allValid()) {
             
         } else {
-            
+            simpleValidator.current.showMessages();
+            console.log(simpleValidator.current);
+            forceUpdate(1)
         }
 
     }
@@ -63,7 +69,7 @@ function NewList(props) {
                                 <div className="form-group">
                                     <ul className="nav nav-tabs nav-pills c--nav-pills nav-justified">
                                         <li className="nav-item">
-                                            <span className="nav-link btn btn-info active">NEW LEAD</span>
+                                            <span className="nav-link btn btn-info btn-block active">NEW LEAD</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -78,6 +84,7 @@ function NewList(props) {
                                         <input type="text" className="form-control form-control-sm" id="name" name="name" placeholder="Name" 
                                         value={state.name} onChange={onChangeHandle}/>
                                     </div>
+                                    {simpleValidator.current.message('name', state.name, 'required')}
                                 </div>
                                 <div className="form-group">
                                     <label>Email</label>
@@ -87,8 +94,9 @@ function NewList(props) {
                                                 <i className="mdi mdi-email"></i>
                                             </span>
                                         </div>
-                                        <input type="text" className="form-control form-control-sm" id="email" name="email" placeholder="Email" />
+                                        <input type="text" className="form-control form-control-sm" id="email" name="email" placeholder="Email" value={state.email} onChange={onChangeHandle}/>
                                     </div>
+                                    {simpleValidator.current.message('email', state.email, 'required|email')}
                                 </div>
                                 <div className="form-group">
                                     <label>Phone</label>
@@ -98,8 +106,9 @@ function NewList(props) {
                                                 <i className="mdi mdi-phone"></i>
                                             </span>
                                         </div>
-                                        <input type="text" className="form-control form-control-sm" id="phone" name="phone" placeholder="Phone" />
+                                        <input type="text" className="form-control form-control-sm" id="phone" name="phone" placeholder="Phone" value={state.phone} onChange={onChangeHandle}/>
                                     </div>
+                                    {simpleValidator.current.message('phone', state.phone, 'required|phone')}
                                 </div>
                                 <div className="form-group">
                                     <label>Address</label>
@@ -109,7 +118,7 @@ function NewList(props) {
                                                 <i className="mdi mdi-home"></i>
                                             </span>
                                         </div>
-                                        <input type="text" className="form-control form-control-sm" id="address" name="address" placeholder="Address" />
+                                        <input type="text" className="form-control form-control-sm" id="address" name="address" placeholder="Address" value={state.address} onChange={onChangeHandle}/>
                                     </div>
                                 </div>
                                 <div className="form-group">
@@ -120,7 +129,7 @@ function NewList(props) {
                                                 <i className="mdi mdi-pencil"></i>
                                             </span>
                                         </div>
-                                        <textarea className="form-control form-control-sm" id="description" name="description" placeholder="Description" ></textarea>
+                                        <textarea className="form-control form-control-sm" id="description" name="description" placeholder="Description" value={state.description} onChange={onChangeHandle}></textarea>
                                     </div>
                                 </div>
                                 <div className="form-group">
@@ -134,7 +143,7 @@ function NewList(props) {
                                                 <i className="mdi mdi-phone"></i>
                                             </span>
                                         </div>
-                                        <input type="range" min="0" max="10" className="custom-range form-control form-control-sm" id="progress" name="progress" />
+                                        <input type="range" min="0" max="100" className="custom-range form-control form-control-sm" id="progress" name="progress" value={state.progress} onChange={onChangeHandle}/>
                                     </div>
                                 </div>
                                 <div className="form-group">
@@ -145,7 +154,7 @@ function NewList(props) {
                                                 <i className="mdi mdi-currency-usd"></i>
                                             </span>
                                         </div>
-                                        <input type="text" className="form-control form-control-sm" id="earnings" name="earnings" placeholder="Earnings" />
+                                        <input type="number" className="form-control form-control-sm" id="earnings" name="earnings" placeholder="Earnings" value={state.earnings} onChange={onChangeHandle}/>
                                     </div>
                                 </div>
                                 <div className="form-group">
@@ -156,7 +165,18 @@ function NewList(props) {
                                                 <i className="mdi mdi-cart-outline"></i>
                                             </span>
                                         </div>
-                                        <input type="text" className="form-control form-control-sm" id="expenses" name="expenses" placeholder="Expenses" />
+                                        <input type="number" className="form-control form-control-sm" id="expenses" name="expenses" placeholder="Expenses"value={state.expenses} onChange={onChangeHandle} />
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label>Net</label>
+                                    <div className="input-group input-group-sm">
+                                        <div className="input-group-prepend">
+                                            <span className="input-group-text bg-gradient-success text-white">
+                                                <i className="mdi mdi-chart-arc"></i>
+                                            </span>
+                                        </div>
+                                        <input type="number" className="form-control form-control-sm" id="net" name="net" placeholder="Net"value={state.net} onChange={onChangeHandle} />
                                     </div>
                                 </div>
                                 <div className="form-group">
@@ -167,15 +187,15 @@ function NewList(props) {
                                                 <i className="mdi mdi-clipboard-alert"></i>
                                             </span>
                                         </div>
-                                        <select className="form-control form-control-sm" id="status" name="status">
+                                        <select className="form-control form-control-sm" id="status" name="status" value={state.status} onChange={onChangeHandle}>
                                             <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
+                                            <option value="0" >Inactive</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div className="form-group text-center">
                                     <button type="submit" className="btn btn-gradient-primary btn-md mr-2">Submit</button>
-                                    <button className="btn btn-inverse-secondary btn-md">Cancel</button>
+                                    <Link to='/lead/list' className="btn btn-inverse-secondary btn-md">Cancel</Link>
                                 </div>
                             </form>
                         </div>
@@ -202,4 +222,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewList)
+export default connect(mapStateToProps, mapDispatchToProps)(NewLead)

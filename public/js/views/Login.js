@@ -76515,7 +76515,7 @@ var Login = /*#__PURE__*/function (_Component) {
     };
     _this.validator = new simple_react_validator__WEBPACK_IMPORTED_MODULE_2___default.a({
       autoForceUpdate: _assertThisInitialized(_this),
-      className: 'small text-danger'
+      className: 'small text-danger mdi mdi-alert'
     });
     return _this;
   }
@@ -76740,7 +76740,7 @@ var Registration = /*#__PURE__*/function (_Component) {
     };
     _this.validator = new simple_react_validator__WEBPACK_IMPORTED_MODULE_2___default.a({
       autoForceUpdate: _assertThisInitialized(_this),
-      className: 'small text-danger',
+      className: 'small text-danger mdi mdi-alert',
       messages: {// email: 'That is not an email.',
       },
       validators: {

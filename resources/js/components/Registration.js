@@ -18,7 +18,7 @@ class Registration extends Component {
         
         this.validator = new SimpleReactValidator({
             autoForceUpdate: this,
-            className: 'small text-danger',
+            className: 'small text-danger mdi mdi-alert',
             messages: {
                 // email: 'That is not an email.',
             },
