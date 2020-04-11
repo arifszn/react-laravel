@@ -21,6 +21,11 @@ class CreateLeadsTable extends Migration
             $table->string('picture')->nullable();
             $table->string('address')->nullable();
             $table->string('description')->nullable();
+            $table->double('progress')->default(0.00);
+            $table->double('earnings')->default(0.00);
+            $table->double('expenses')->default(0.00);
+            $table->double('net')->default(0.00);
+            $table->tinyInteger('status')->default(1);
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id')->on('users')

@@ -34,7 +34,7 @@ function App() {
 											} </h3>
 				<nav aria-label="breadcrumb">
 					{ activeComponent && activeComponent == 'LeadList' ?  
-						<Link to='/lead/new' className="btn btn-gradient-dark btn-md"><i className="mdi mdi-account-plus btn-icon-prepend"></i>&nbsp; New</Link> : <Link to='/lead/list' className="btn btn-gradient-info btn-md"><i className="mdi mdi-arrow-left-bold btn-icon-prepend"></i>&nbsp; Back</Link>
+						<Link to='/lead/new' className="btn btn-social-icon-text btn-linkedin"><i className="mdi mdi-account-plus btn-icon-prepend"></i>&nbsp; New</Link> : <Link to='/lead/list' className="btn btn-social-icon-text btn-linkedin"><i className="mdi mdi-arrow-left-bold btn-icon-prepend"></i>&nbsp; Back</Link>
 					}
 				</nav>
 			</div>

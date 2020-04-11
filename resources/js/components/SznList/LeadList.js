@@ -7,6 +7,7 @@ import Pagination from "react-js-pagination";
 import { useSelector, connect } from 'react-redux';
 import rootAction from '../../redux/actions/index'
 import ContentLoader from "react-content-loader" 
+import { fadeIn } from 'animate.css'
 
 function LeadList(props) {
     const [leads, setLeads] = useState([]);
@@ -19,6 +20,8 @@ function LeadList(props) {
     //const authUser = props.authUserProp;
     
     useEffect(() => {
+        document.title = 'All Leads';
+
         props.setActiveComponentProp('LeadList');
         loadData();
     }, []);
@@ -89,14 +92,14 @@ function LeadList(props) {
 
     const dataTable = () => {
         return isLoading ? skeletonLoader() : 
-        leads.map((lead, i) => {
+        (leads.length == 0 ? <div className=""><div className="p-3 font-weight-bold">No Data Available</div></div> : leads.map((lead, i) => {
             return <LeadItem obj={lead} key={i} />;
-        });
+        }));
     }
 
     return (
         <React.Fragment>
-            <div className="card">
+            <div className="card animated fadeIn">
                 <div className="card-body">
                     <div className="pt-3 pb-3">
                         <div className="">
