@@ -1,6 +1,5 @@
 import React, {  useState, useEffect } from 'react'
 import LeadItem from './LeadItem'
-import SearchControl from './SearchControl'
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Pagination from "react-js-pagination";
@@ -8,10 +7,26 @@ import { useSelector, connect } from 'react-redux';
 import rootAction from '../../redux/actions/index'
 import ContentLoader from "react-content-loader" 
 import { fadeIn } from 'animate.css'
+import { showSznNotification} from '../../Helpers'
+import TopControl from './TopControl'
 
 function LeadList(props) {
     const [leads, setLeads] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    const [state, setState] = useState({
+       pageRangeDisplayed: 5,
+       currentPage: 1, 
+       total: 0,
+       lastPageUrl: null,
+       nextPageUrl: null,
+       firstPageUrl: null,
+       prevPageUrl: null,
+       perPage: 10,
+       query: '',
+       sortBy: 'created_at',
+       sortType: 'desc'
+    });
 
     //get reducer
     const authUser = useSelector(state => state.authUserReducer);
@@ -23,8 +38,13 @@ function LeadList(props) {
         document.title = 'All Leads';
 
         props.setActiveComponentProp('LeadList');
-        loadData();
+
     }, []);
+
+    useEffect(() => {
+        loadData();
+        
+    }, [state.currentPage, state.perPage, state.sortBy, state.sortType]);
 
     const skeletonLoader = () => {
         return <ContentLoader 
@@ -70,29 +90,92 @@ function LeadList(props) {
 
 
     const loadData = () => {
-        axios.get('/api/v1/lead/list', {
+        axios.get('/api/v1/lead/list?page='+state.currentPage, {
             params: {
                 api_token: authUser.api_token,
-                paginate: 10
+                per_page: state.perPage,
+                query: state.query,
+                sort_by: state.sortBy,
+                sort_type: state.sortType
             }
         })
         .then(response => {
             setIsLoading(false);
             setLeads(response.data.message.data);
+            setState({
+                ...state,
+                currentPage: response.data.message.current_page,
+                firstPageUrl: response.data.message.first_page_url,
+                lastPageUrl: response.data.message.last_page_url,
+                nextPageUrl: response.data.message.next_page_url,
+                prevPageUrl: response.data.message.prev_page_url,
+                perPage: parseInt(response.data.message.per_page),
+                total: response.data.message.total,
+            })
         })
         .catch((error) => {
-            console.log(error);
+            showSznNotification({
+                type : 'error',
+                message : error.response.data.message
+            });
         });
     };
 
     const handlePageChange = (pageNumber) => {
-        console.log(`active page is ${pageNumber}`);
-        // setState({ activePage: pageNumber });
+        setState({
+            ...state,
+            currentPage: pageNumber 
+        });
     }
+
+    const onChangeQueryHandle = (e) => {
+        setState({
+            ...state,
+            query: e.target.value
+        });
+    };
+
+    const onChangePerPageHandle = (e) => {
+        setState({
+            ...state,
+            perPage: parseInt(e.target.value)
+        });
+    };
+
+    const onChangeSortByHandle = (e) => {
+        setState({
+            ...state,
+            sortBy: e.target.value
+        });
+    };
+
+    const onClickSortTypeHandle = (e) => {
+        if (state.sortType == 'asc') {
+            setState({
+                ...state,
+                sortType: 'desc'
+            });
+        } else {
+            setState({
+                ...state,
+                sortType: 'asc'
+            });
+        }
+        
+    };
+    
+    const onSubmitQueryHandle = (e) => {
+        e.preventDefault();
+        loadData();
+
+    };
 
     const dataTable = () => {
         return isLoading ? skeletonLoader() : 
-        (leads.length == 0 ? <div className=""><div className="p-3 font-weight-bold">No Data Available</div></div> : leads.map((lead, i) => {
+        (leads.length == 0 ? <div className="text-center text-gray">
+                                <div className="p-3 font-weight-bold">No Data Available</div>
+                            </div> : 
+        leads.map((lead, i) => {
             return <LeadItem obj={lead} key={i} />;
         }));
     }
@@ -101,61 +184,34 @@ function LeadList(props) {
         <React.Fragment>
             <div className="card animated fadeIn">
                 <div className="card-body">
-                    <div className="pt-3 pb-3">
-                        <div className="">
-                            <div className="d-flex justify-content-between bd-highlight">
-                                <div className="d-flex flex-column flex-md-row">
-                                    <div className="p-2   bd-highlight">
-                                        <div className="">
-                                            <DropdownButton
-                                                alignRight
-                                                title="Sort"
-                                                id="dropdown-menu-align-right"
-                                            >
-                                                <Dropdown.Item eventKey="1">Action</Dropdown.Item>
-                                                <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
-                                                <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
-                                                <Dropdown.Divider />
-                                                <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
-                                            </DropdownButton>
-                                        </div>
-                                    </div>
-                                    <div className="p-2  bd-highlight">
-                                        <DropdownButton
-                                            alignRight
-                                            title="Show"
-                                            variant="success"
-                                            id="dropdown-menu-align-right"
-                                        >
-                                            <Dropdown.Item eventKey="1">Action</Dropdown.Item>
-                                            <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
-                                            <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
-                                            <Dropdown.Divider />
-                                            <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
-                                        </DropdownButton>
-                                    </div>
-                                </div>
-                                <div className="p-2 flex-grow-1 bd-highlight"><SearchControl /></div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div className='szn-list-wrapper p-3 bg-gradient-light'>
+                    <TopControl 
+                        isLoading={isLoading} 
+                        perPage={state.perPage} 
+                        onChangePerPageHandle={onChangePerPageHandle}
+                        sortBy={state.sortBy}
+                        sortType={state.sortType}
+                        onChangeSortByHandle={onChangeSortByHandle}
+                        onClickSortTypeHandle={onClickSortTypeHandle}
+                        onSubmitQueryHandle={onSubmitQueryHandle}
+                        onChangeQueryHandle={onChangeQueryHandle}
+                        query={state.query}
+                    />
+                    <div className='szn-list-wrapper bg-gradient-light'>
                             {dataTable()}
                     </div>
                     <div className="pt-3 pb-3">
                         <div className="">
                             
 
-                            <div className="d-flex justify-content-center bd-highlight">
-                                <div className="p-2  bd-highlight">
+                            <div className="d-flex justify-content-center">
+                                <div className="p-2">
                                     <Pagination
-                                        activePage={10}
-                                        itemsCountPerPage={10}
+                                        activePage={state.currentPage}
+                                        itemsCountPerPage={state.perPage}
                                         itemClass="page-item"
                                         linkClass="page-link"
-                                        totalItemsCount={450}
-                                        pageRangeDisplayed={5}
+                                        totalItemsCount={state.total}
+                                        pageRangeDisplayed={state.pageRangeDisplayed}
                                         onChange={handlePageChange}
                                     />
                                 </div>

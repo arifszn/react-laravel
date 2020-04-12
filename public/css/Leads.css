@@ -1,5 +1,15 @@
 /* szn table starts  */
 
+.szn-list-wrapper {
+  padding: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .szn-list-wrapper {
+    padding: 0.4rem;
+  }
+}
+
 .szn-list-wrapper .szn-portlet {
   display: flex;
   flex-grow: 1;
@@ -143,7 +153,7 @@
   height: 1rem;
   overflow: hidden;
   font-size: 0.75rem;
-  background-color: red;
+  background-color: #ebedf2;
   border-radius: 0.25rem;
 }
 
@@ -286,6 +296,10 @@
 .szn-list-wrapper .szn-widget.szn-widget--user-profile-3 .szn-widget__bottom .szn-widget__item .szn-widget__details .szn-widget__value {
   display: block;
   color: grey;
+}
+
+.szn-list-wrapper .szn-bg-success {
+  background-color: #0abb87 !important;
 }
 
 /* szn table ends  */

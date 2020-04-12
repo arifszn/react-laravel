@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import LeadList from '../components/SznList/LeadList'
 import NewLead from '../components/SznList/NewLead'
+import EditLead from '../components/SznList/EditLead'
 import '../variables'
 import {createStore} from 'redux';
 import rootReducer from '../redux/reducers/index'
@@ -30,11 +31,12 @@ function App() {
 			<BrowserRouter>
 			<div className="page-header">
 				<h3 className="page-title"> { activeComponent && activeComponent == 'LeadList' ?  
-												'All Leads' : (activeComponent && activeComponent == 'NewLead' ? 'New Lead' : '' )
+												'All Leads' : (activeComponent && activeComponent == 'NewLead' ? 'New Lead' : 
+												(activeComponent && activeComponent == 'EditLead' ? 'Edit Lead' : '' ) )
 											} </h3>
 				<nav aria-label="breadcrumb">
-					{ activeComponent && activeComponent == 'LeadList' ?  
-						<Link to='/lead/new' className="btn btn-social-icon-text btn-linkedin"><i className="mdi mdi-account-plus btn-icon-prepend"></i>&nbsp; New</Link> : <Link to='/lead/list' className="btn btn-social-icon-text btn-linkedin"><i className="mdi mdi-arrow-left-bold btn-icon-prepend"></i>&nbsp; Back</Link>
+					{ activeComponent && activeComponent != 'LeadList' ?  
+						<Link to='/lead/list' className="btn btn-social-icon-text btn-linkedin"><i className="mdi mdi-arrow-left-bold btn-icon-prepend"></i>&nbsp; Back</Link> : <Link to='/lead/new' className="btn btn-social-icon-text btn-linkedin"><i className="mdi mdi-account-plus btn-icon-prepend"></i>&nbsp; New</Link>
 					}
 				</nav>
 			</div>
@@ -44,6 +46,7 @@ function App() {
 						<Switch>
 							<Route exact path='/lead/list' > <LeadList /> </Route>
 							<Route path='/lead/new' > <NewLead /> </Route>
+							<Route path='/lead/edit/:id' component={EditLead} /> 
 						</Switch>
 					
 				</div>

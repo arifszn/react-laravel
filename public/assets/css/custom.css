@@ -6,5 +6,10 @@
     .main-panel .content-wrapper {
         padding: 0.70rem 0.50rem;
     }
+
+    .card .card-body {
+        padding: 0.15rem;
+    }
+
 }
 

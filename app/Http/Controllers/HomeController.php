@@ -34,11 +34,13 @@ class HomeController extends Controller
             ]);
         }
         dd('dasdas'); */
-        $paginate = 2;
+        $paginate = 10;
 
-        $leads = Lead::where('user_id', 12)
-                        ->paginate($paginate);
-        return view('test')->with('leads', $leads);
+        $leads = Lead::where('user_id', 12);
+
+        $leads = $leads->where('name', 'like', '%' . 'Idona' . '%');
+
+        return view('test')->with('leads', $leads->paginate($paginate));
 
     }
 }

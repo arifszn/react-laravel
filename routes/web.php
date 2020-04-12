@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
     //react route
     Route::get('/lead/list', 'LeadController@index')->name('Leads');
     Route::get('/lead/new', 'LeadController@index')->name('NewLead');
+    Route::get('/lead/edit/{id}', 'LeadController@index')->name('EditLead');
 
 
 
