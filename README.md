@@ -1,6 +1,8 @@
-<h1 align="center">React Laravel</h1>
+
 
 <p align="center">
+    <h1 align="center">React Laravel</h1>
+    
     <a href="https://laravel.com/"><img src="https://img.shields.io/badge/Laravel-7.5.2-green" alt="Laravel 7.5.2"></a>
     <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/React-16.13.1-blue" alt="React 16.13.1"></a>
     <a href="https://reacttraining.com/react-router//"><img src="https://img.shields.io/badge/React Router-5.1.2-orange" alt="React 16.13.1"></a>
