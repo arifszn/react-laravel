@@ -1,7 +1,5 @@
 import React, {  useState, useEffect } from 'react'
 import LeadItem from './LeadItem'
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown';
 import Pagination from "react-js-pagination";
 import { useSelector, connect } from 'react-redux';
 import rootAction from '../../redux/actions/index'
@@ -9,6 +7,8 @@ import ContentLoader from "react-content-loader"
 import { fadeIn } from 'animate.css'
 import { showSznNotification} from '../../Helpers'
 import TopControl from './TopControl'
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 function LeadList(props) {
     const [leads, setLeads] = useState([]);
@@ -149,6 +149,58 @@ function LeadList(props) {
         });
     };
 
+    const onClickDeleteHandler = (id) => {
+
+        confirmAlert({
+            title: 'Confirm to delete',
+            message: 'Are you sure to do this.',
+            buttons: [
+                {
+                label: 'Yes',
+                    onClick: () => {
+                        setIsLoading(true);
+
+                        axios.post('/api/v1/lead/destroy', {
+                            api_token: authUser.api_token,
+                            lead_id: id
+                        })
+                        .then(response => {
+                            setIsLoading(false);
+                            if (response.data.status == 'error') {
+                                    showSznNotification({
+                                        type : 'error',
+                                        message : response.data.message
+                                    });
+                            } else if (response.data.status == 'success') {
+                                showSznNotification({
+                                    type : 'success',
+                                    message : response.data.message
+                                });
+                                loadData();
+                            }
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                            
+                            setIsLoading(false);
+
+                            if (error.response.data.status == 'error') {
+                                showSznNotification({
+                                    type : 'error',
+                                    message : error.response.data.message
+                                });
+                            } 
+                        });
+                    }
+                },
+                {
+                label: 'No',
+                    //do nothing
+                }
+            ]
+        });
+    };
+
     const onClickSortTypeHandle = (e) => {
         if (state.sortType == 'asc') {
             setState({
@@ -176,7 +228,7 @@ function LeadList(props) {
                                 <div className="p-3 font-weight-bold">No Data Available</div>
                             </div> : 
         leads.map((lead, i) => {
-            return <LeadItem obj={lead} key={i} />;
+            return <LeadItem onClickDeleteHandler={onClickDeleteHandler} obj={lead} key={i} />;
         }));
     }
 

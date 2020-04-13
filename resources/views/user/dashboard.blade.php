@@ -9,16 +9,12 @@
 @extends('user.layout.master')
 
 @section('container')
-	welcome
-	
+	<div id="app"></div>
 @endsection
 
 @section('scripts')
-<script type="text/javascript">
-
-    $(function () {
-		
-	});
+<script>
+    var authUser = @json(Auth::user());
 </script>
-
+<script src="{{ asset('js/views/Dashboard.js') }}"></script>
 @endsection

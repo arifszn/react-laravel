@@ -9,6 +9,7 @@ import SimpleReactValidator from 'simple-react-validator';
 import { Link, useHistory } from 'react-router-dom';
 
 function EditLead(props) {
+    
     const [state, setState] = useState({
         lead: props.location.state.lead ? props.location.state.lead : '',
         name: props.location.state.lead.name ? props.location.state.lead.name : '',
@@ -17,7 +18,7 @@ function EditLead(props) {
         address: props.location.state.lead.address ? props.location.state.lead.address : '',
         progress: props.location.state.lead.progress ? props.location.state.lead.progress : 0,
         description: props.location.state.lead.description ? props.location.state.lead.description : '',
-        status: props.location.state.lead.status ? props.location.state.lead.status : 1,
+        status: props.location.state.lead.status,
         earnings: props.location.state.lead.earnings ? props.location.state.lead.earnings : 0,
         expenses: props.location.state.lead.expenses ? props.location.state.lead.expenses : 0,
         net: props.location.state.lead.net ? props.location.state.lead.net : 0,

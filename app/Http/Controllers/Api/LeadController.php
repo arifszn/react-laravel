@@ -22,7 +22,7 @@ class LeadController extends Controller
         $leads = Lead::where('user_id', $user->id)->orderBy($sortBy, $sortType);
 
         if ($request['query'] != '') {
-            $leads = $leads->where('name', 'like', '%' . $request['query'] . '%');
+            $leads->where('name', 'like', '%' . $request['query'] . '%');
         }
         
         return response()->json([
@@ -86,7 +86,9 @@ class LeadController extends Controller
     {
         $user = User::where('api_token',$request['api_token'])->first();
 
-        $lead = Lead::where('id',$request['lead_id'])->first();
+        $lead = Lead::where('id',$request['lead_id'])
+                        ->where('user_id', $user->id)
+                        ->first();
 
         if (empty($lead)) {
             return response()->json([
@@ -116,7 +118,7 @@ class LeadController extends Controller
             ], 401);
         }
         
-        $newLead = $lead->update([
+        $updateLead = $lead->update([
             'name'        => $request['name'],
             'email'       => $request['email'],
             'phone'       => $request['phone'],
@@ -128,10 +130,32 @@ class LeadController extends Controller
             'expenses'    => $request['expenses'],
             'net'         => $request['net'],
         ]);
+        
+        return response()->json([
+            'message' => 'Lead successfully updated',
+            'status' => 'success'
+        ]);
+    }
 
-        if ($newLead) {
+    public function destroy(Request $request)
+    {
+        $user = User::where('api_token',$request['api_token'])->first();
+        $lead = Lead::where('id',$request['lead_id'])
+                        ->where('user_id', $user->id)
+                        ->first();
+                     
+        if (empty($lead)) {
             return response()->json([
-                'message' => 'Lead successfully updated',
+                'message' => 'Lead Not Found',
+                'status' => 'error'
+            ]);
+        }
+
+        $deleteLead = $lead->delete();
+
+        if ($deleteLead) {
+            return response()->json([
+                'message' => 'Lead successfully deleted',
                 'status' => 'success'
             ]);
         } else {
