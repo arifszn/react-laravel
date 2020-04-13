@@ -27,7 +27,7 @@ A simple crud based laravel app to learn how to integrate react and other import
 - Laravel Token Api
 - Laravel Manual Pagination
 - Laravel Crud
-- SCSS
+- Sass
 
 ## Screenshots ##
 ![alt text](https://raw.githubusercontent.com/arifszn/react-laravel/master/public/assets/images/screenshots/1.png)
