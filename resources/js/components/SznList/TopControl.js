@@ -33,7 +33,7 @@ function TopControl(props) {
                                     <option value="net">Net</option>
                                 </select>
                                 <div className="input-group-append">
-                                    <button disabled={props.isLoading ? true : false} className="btn btn-sm btn-link" type="button" onClick={props.onClickSortTypeHandle}>
+                                    <button disabled={props.isLoading ? true : false} className="bg-light btn btn-sm text-success" type="button" onClick={props.onClickSortTypeHandle}>
                                         { props.sortType == 'asc' ?  <i className="mdi mdi-arrow-down"></i> : <i className="mdi mdi-arrow-up"></i>}
                                     </button>
                                 </div>
