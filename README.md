@@ -11,10 +11,10 @@
 
 # About #
 
-A simple crud based laravel app to learn how to integrate react and other important feature in laravel.
+A simple crud based laravel app to learn how to integrate react and other important react feature in laravel.
 
 ## Demo ##
-[http://szn-react-laravel.herokuapp.com/](http://szn-react-laravel.herokuapp.com/)
+[http://szn-react-laravel.herokuapp.com](http://szn-react-laravel.herokuapp.com)
 
 ## Topics Convered ##
 - React
@@ -23,6 +23,7 @@ A simple crud based laravel app to learn how to integrate react and other import
 - React Class Component VS Functional Component
 - React validation
 - Laravel Api
+- Laravel Manual Pagination
 - Laravel Token Api
 - Laravel Crud
 - SCSS
