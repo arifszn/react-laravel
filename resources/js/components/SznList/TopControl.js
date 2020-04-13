@@ -28,7 +28,7 @@ function TopControl(props) {
                                 <select className="form-control form-control-sm btn btn-success" disabled={props.isLoading ? true : false} defaultValue={props.sortBy} onChange={props.onChangeSortByHandle}>
                                     <option value="created_at">Created</option>
                                     <option value="name">Name</option>
-                                    <option value="email">email</option>
+                                    <option value="email">Email</option>
                                     <option value="progress">Progress</option>
                                     <option value="net">Net</option>
                                 </select>
