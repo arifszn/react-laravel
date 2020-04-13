@@ -70390,7 +70390,7 @@ function Dashboard(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-md-4 stretch-card grid-margin"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card bg-gradient-danger card-img-holder text-white"
+    className: "card bg-danger card-img-holder text-white"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -70422,7 +70422,7 @@ function Dashboard(props) {
   }, state.weeklyLeads)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-md-4 stretch-card grid-margin"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card bg-gradient-success card-img-holder text-white"
+    className: "card bg-green-gradient card-img-holder text-white"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -70624,7 +70624,7 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_2__["combineReducers"])(
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {module.exports = global.variables = {
-  site_name: 'SZN'
+  site_name: 'Laravel React'
 };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
@@ -70688,7 +70688,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Work\laragon\www\react-router-laravel-crud-practice\resources\js\views\Dashboard.js */"./resources/js/views/Dashboard.js");
+module.exports = __webpack_require__(/*! E:\Work\laragon\www\react-laravel\resources\js\views\Dashboard.js */"./resources/js/views/Dashboard.js");
 
 
 /***/ })

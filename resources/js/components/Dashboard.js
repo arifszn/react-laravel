@@ -79,7 +79,7 @@ function Dashboard(props) {
 			
             <div className="row animated fadeIn">
                 <div className="col-md-4 stretch-card grid-margin">
-                    <div className="card bg-gradient-danger card-img-holder text-white">
+                    <div className="card bg-danger card-img-holder text-white">
                     <div className="card-body">
                         <img src="/assets/images/dashboard/circle.svg" className="card-img-absolute" alt="circle-image"/>
                         <h4 className="font-weight-normal mb-3">Total Leads <i className="mdi mdi-chart-line mdi-24px float-right"></i>
@@ -99,7 +99,7 @@ function Dashboard(props) {
                     </div>
                 </div>
                 <div className="col-md-4 stretch-card grid-margin">
-                    <div className="card bg-gradient-success card-img-holder text-white">
+                    <div className="card bg-green-gradient card-img-holder text-white">
                     <div className="card-body">
                         <img src="/assets/images/dashboard/circle.svg" className="card-img-absolute" alt="circle-image" />
                         <h4 className="font-weight-normal mb-3">New Leads This Month <i className="mdi mdi-calendar-multiple-check mdi-24px float-right"></i>

@@ -139,7 +139,7 @@ function NewLead(props) {
                                     <div className="form-group">
                                         <ul className="nav nav-tabs nav-pills c--nav-pills nav-justified">
                                             <li className="nav-item">
-                                                <span className="nav-link btn btn-info btn-block active">NEW LEAD</span>
+                                                <span className="nav-link btn btn-gradient-primary btn-block active">NEW LEAD</span>
                                             </li>
                                         </ul>
                                     </div>
