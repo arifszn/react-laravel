@@ -76987,7 +76987,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Work\laragon\www\react-router-laravel-crud-practice\resources\js\views\Login.js */"./resources/js/views/Login.js");
+module.exports = __webpack_require__(/*! E:\Work\laragon\www\react-laravel\resources\js\views\Login.js */"./resources/js/views/Login.js");
 
 
 /***/ })

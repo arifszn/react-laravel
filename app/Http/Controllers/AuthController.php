@@ -7,7 +7,7 @@ use App\Models\User;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Str;
+use Illuminate\Support\Str;
 use Validator;
 
 class AuthController extends Controller

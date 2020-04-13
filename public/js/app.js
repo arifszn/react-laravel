@@ -37137,9 +37137,9 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Work\laragon\www\react-router-laravel-crud-practice\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! E:\Work\laragon\www\react-router-laravel-crud-practice\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! E:\Work\laragon\www\react-router-laravel-crud-practice\resources\sass\Leads.scss */"./resources/sass/Leads.scss");
+__webpack_require__(/*! E:\Work\laragon\www\react-laravel\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\Work\laragon\www\react-laravel\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! E:\Work\laragon\www\react-laravel\resources\sass\Leads.scss */"./resources/sass/Leads.scss");
 
 
 /***/ })

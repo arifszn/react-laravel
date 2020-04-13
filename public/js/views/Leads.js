@@ -104151,7 +104151,7 @@ function TopControl(props) {
     className: "input-group-append"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     disabled: props.isLoading ? true : false,
-    className: "btn btn-sm btn-link",
+    className: "bg-light btn btn-sm text-success",
     type: "button",
     onClick: props.onClickSortTypeHandle
   }, props.sortType == 'asc' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -104423,7 +104423,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Work\laragon\www\react-router-laravel-crud-practice\resources\js\views\Leads.js */"./resources/js/views/Leads.js");
+module.exports = __webpack_require__(/*! E:\Work\laragon\www\react-laravel\resources\js\views\Leads.js */"./resources/js/views/Leads.js");
 
 
 /***/ })
