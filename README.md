@@ -24,8 +24,8 @@ A simple crud based laravel app to learn how to integrate react and other import
 - React Class Component VS Functional Component
 - React validation
 - Laravel Api
-- Laravel Manual Pagination
 - Laravel Token Api
+- Laravel Manual Pagination
 - Laravel Crud
 - SCSS
 
@@ -43,7 +43,7 @@ A simple crud based laravel app to learn how to integrate react and other import
 ***
 
 ## Installation ##
-- Clone
+- Clone repo
 - Run ```composer install```
 - Run ```npm install```
 - Setup database and env
