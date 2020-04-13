@@ -20,43 +20,35 @@ A simple crud based laravel app to learn how to integrate react and other import
 - React
 - React Redux
 - React Router
+- React Hooks
 - React Class Component VS Functional Component
 - React validation
 - Laravel Api
-- Laravel Manual Pagination
 - Laravel Token Api
+- Laravel Manual Pagination
 - Laravel Crud
 - SCSS
 
 ## Screenshots ##
-![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/3.png)
+![alt text](https://raw.githubusercontent.com/arifszn/react-laravel/master/public/assets/images/screenshots/1.png)
 <br />
 <br />
 
 ***
 
-![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/4.png)
+![alt text](https://raw.githubusercontent.com/arifszn/react-laravel/master/public/assets/images/screenshots/2.png)
 <br />
 <br />
 
 ***
 
-![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/5.png)
-<br />
-<br />
+## Installation ##
+- Clone repo
+- Run ```composer install```
+- Run ```npm install```
+- Setup database and env
+- Run ```php artisan migrate```
+- Run ```php artisan db:seed```
 
-***
-
-![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/6.png)
-<br />
-<br />
-
-***
-
-![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/7.png)
-<br />
-<br />
-
-***
-
-![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/8.png)
+## Author ##
+Ariful Alam (https://arifszn.github.io)
