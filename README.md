@@ -45,7 +45,6 @@ A simple crud based laravel app to learn how to integrate react and other import
 ## Installation ##
 - Clone repo
 - Run ```composer install```
-- Run ```npm install```
 - Setup database and env
 - Run ```php artisan migrate```
 - Run ```php artisan db:seed```
