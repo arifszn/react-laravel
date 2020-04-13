@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" />
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}" />
     <link href="{{ asset('assets/global/iziToast/css/iziToast.css') }}" rel="stylesheet">
     @yield('styles')
   </head>
