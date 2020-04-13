@@ -1799,7 +1799,8 @@ body {
   line-height: 1.5;
   color: #343a40;
   text-align: left;
-  background-color: #fff; }
+  background-color: #fff; 
+  zoom: 90%;}
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
