@@ -112,7 +112,7 @@ function Dashboard(props) {
             <div className="row">
               <div className="col-12 grid-margin">
                 <div className="card">
-                    <div className="card-body animated pulse">
+                    <div className="card-body animated zoomIn">
                         <h4 className="card-title">Recent Leads</h4>
                         <div className="table-responsive">
                         <table className="table">
