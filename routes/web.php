@@ -43,10 +43,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/lead/edit/{id}', 'LeadController@index')->name('EditLead');
 
 
-
-    
-    Route::get('/test', 'HomeController@test');
-
 });
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

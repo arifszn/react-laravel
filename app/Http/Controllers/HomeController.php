@@ -20,27 +20,4 @@ class HomeController extends Controller
         Auth::logout();
         return redirect(route('Login'));
     }
-
-    public function test()
-    {
-        /* for ($i=0; $i < 12; $i++) { 
-
-            Lead::create([
-                'name' => 'name'.$i,
-                'email' => 'name'.$i.'@yopmail.com',
-                'phone' => rand(1, 9).rand(1, 7).$i,
-                'description' => 'dssad sdjfdsh fdshsdfh fdsjsdn',
-                'user_id' => 12
-            ]);
-        }
-        dd('dasdas'); */
-        $paginate = 10;
-
-        $leads = Lead::where('user_id', 12);
-
-        $leads = $leads->where('name', 'like', '%' . 'Idona' . '%');
-
-        return view('test')->with('leads', $leads->paginate($paginate));
-
-    }
 }

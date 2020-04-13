@@ -49,7 +49,7 @@ class LeadItem extends Component {
                                                     lead: this.props.obj
                                                 }
                                             }} type="button" className="btn btn-outline-success btn-sm btn-upper">Edit</Link>&nbsp;
-                                            <button type="button" className="btn btn-danger btn-sm btn-upper">Delete</button>
+                                            <button type="button" className="btn btn-danger btn-sm btn-upper" onClick={() => this.props.onClickDeleteHandler(this.props.obj.id)}>Delete</button>
                                         </div>
                                     </div>
                                     <div className="szn-widget__subhead d-flex flex-column flex-md-row">
