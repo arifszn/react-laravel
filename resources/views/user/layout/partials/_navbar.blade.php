@@ -1,7 +1,7 @@
 <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="{{ route('Dashboard') }}">
-            <h3 style="color: #da8cff;">{{env('SITE_NAME')}}</h3>
+            <h3 style="color: #da8cff;">{{env('APP_NAME')}}</h3>
         </a>
         <a class="navbar-brand brand-logo-mini" href="{{ route('Dashboard') }}"><img src="{{ asset('assets/images/logo-mini.svg') }}"
                 alt="logo" /></a>
