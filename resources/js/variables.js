@@ -1,3 +1,3 @@
 module.exports = global.variables = {
-    site_name: 'Laravel React'
+    site_name: 'React Laravel'
 };
