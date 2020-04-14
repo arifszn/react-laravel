@@ -18,11 +18,6 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}" />
-    <style>
-      body {
-        zoom: 100%;
-      }
-    </style>
   </head>
   <body>
     <div id="app"></div>
