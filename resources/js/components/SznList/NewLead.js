@@ -120,7 +120,7 @@ function NewLead(props) {
         <React.Fragment>
             <div className="card animated fadeIn">
                 <div className="card-body">
-                    <div className="row p-5 d-flex justify-content-center">
+                    <div className="row new-lead-wrapper d-flex justify-content-center">
                         <div className="col-md-8 ">
                             <LoadingOverlay
                                 active={state.loading}
@@ -134,7 +134,7 @@ function NewLead(props) {
                                     })
                                 }}
                             >
-                                <form className="new-lead-form p-5 border" onSubmit={onSubmitHandle}>
+                                <form className="new-lead-form border" onSubmit={onSubmitHandle}>
                                     <input type="hidden" name="api_token" value={state.authUser.api_token} />
                                     <div className="form-group">
                                         <ul className="nav nav-tabs nav-pills c--nav-pills nav-justified">

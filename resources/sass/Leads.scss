@@ -310,3 +310,20 @@
 }
 
 /* szn table ends  */
+
+.new-lead-wrapper, .edit-lead-wrapper {
+    padding: 3rem;
+}
+
+.new-lead-form, .edit-lead-form {
+    padding: 3rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .new-lead-wrapper, .edit-lead-wrapper {
+        padding: 1rem;
+    }
+    .new-lead-form, .edit-lead-form {
+        padding: 1rem;
+    }
+}

@@ -123,7 +123,7 @@ function EditLead(props) {
             
                 <div className="card animated fadeIn">
                     <div className="card-body">
-                        <div className="row p-5 d-flex justify-content-center">
+                        <div className="row new-lead-wrapper d-flex justify-content-center">
                             <div className="col-md-8 ">
                                 <LoadingOverlay
                                     active={state.loading}
@@ -137,7 +137,7 @@ function EditLead(props) {
                                         })
                                     }}
                                 >
-                                    <form className="edit-lead-form p-5 border" onSubmit={onSubmitHandle}>
+                                    <form className="edit-lead-form border" onSubmit={onSubmitHandle}>
                                         <input type="hidden" name="api_token" value={state.authUser.api_token} />
                                         <input type="hidden" name="lead_id" value={state.lead.id} />
                                         <div className="form-group">
