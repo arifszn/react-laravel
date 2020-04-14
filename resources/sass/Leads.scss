@@ -227,6 +227,10 @@
     }
 
     @media (max-width: 768px) {
+        
+        .content-loader-wrapper{
+           display: none; 
+        }
         .szn-widget.szn-widget--user-profile-3 {
             padding-top: 0.5rem;
         }
