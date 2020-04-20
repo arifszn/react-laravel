@@ -40,8 +40,6 @@ A simple crud based laravel app to learn how to integrate react and other import
 <br />
 <br />
 
-***
-
 ## Installation ##
 - Clone repo
 - Run ```composer install```
