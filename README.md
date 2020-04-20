@@ -53,4 +53,4 @@ A simple crud based laravel app to learn how to integrate react and other import
 Ariful Alam (https://arifszn.github.io)
 
 ***
-> Feel free to create an issue if you face any problem or need any help. Leaving a :star: would be great.
+> Feel free to create an issue if you face any problem or need any help.
