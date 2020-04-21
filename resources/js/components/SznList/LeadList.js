@@ -25,7 +25,8 @@ function LeadList(props) {
        perPage: 10,
        query: '',
        sortBy: 'created_at',
-       sortType: 'desc'
+       sortType: 'desc',
+       resetCurrentPage: false
     });
 
     //get reducer
@@ -43,8 +44,7 @@ function LeadList(props) {
 
     useEffect(() => {
         loadData();
-        
-    }, [state.currentPage, state.perPage, state.sortBy, state.sortType]);
+    }, [state.currentPage, state.resetCurrentPage, state.perPage, state.sortBy, state.sortType]);
 
     const skeletonLoader = () => {
         return <div className="content-loader-wrapper">
@@ -92,6 +92,7 @@ function LeadList(props) {
 
 
     const loadData = () => {
+        setIsLoading(true);
         axios.get('/api/v1/lead/list?page='+state.currentPage, {
             params: {
                 api_token: authUser.api_token,
@@ -220,8 +221,11 @@ function LeadList(props) {
     
     const onSubmitQueryHandle = (e) => {
         e.preventDefault();
-        loadData();
-
+        setState({
+            ...state,
+            currentPage: 1,
+            resetCurrentPage: !state.resetCurrentPage 
+        });
     };
 
     const dataTable = () => {
@@ -255,18 +259,16 @@ function LeadList(props) {
                     </div>
                     <div className="pt-3 pb-3">
                         <div className="">
-                            
-
                             <div className="d-flex justify-content-center">
                                 <div className="p-2">
                                     <Pagination
                                         activePage={state.currentPage}
                                         itemsCountPerPage={state.perPage}
-                                        itemClass="page-item"
-                                        linkClass="page-link"
+                                        itemClass={isLoading ? 'page-item disabled' : 'page-item'}
+                                        linkClass={isLoading ? 'page-link disabled' : 'page-link'}
                                         totalItemsCount={state.total}
                                         pageRangeDisplayed={state.pageRangeDisplayed}
-                                        onChange={handlePageChange}
+                                        onChange={isLoading ?  (e) => {e.preventDefault();} : handlePageChange}
                                     />
                                 </div>
                             </div>
