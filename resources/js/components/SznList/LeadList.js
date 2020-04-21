@@ -216,7 +216,6 @@ function LeadList(props) {
                 sortType: 'asc'
             });
         }
-        
     };
     
     const onSubmitQueryHandle = (e) => {
