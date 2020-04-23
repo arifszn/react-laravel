@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use Config;
 use Illuminate\Support\ServiceProvider;
+use Str;
+use URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if (Str::contains(Config::get('app.url'), 'https://')) {
+            URL::forceScheme('https');
+        }
     }
 }
