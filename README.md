@@ -14,7 +14,7 @@
 A simple crud based laravel app to learn how to integrate react and other important react feature in laravel.
 
 ## Demo ##
-[http://szn-react-laravel.herokuapp.com](http://szn-react-laravel.herokuapp.com)
+[https://szn-react-laravel.herokuapp.com](https://szn-react-laravel.herokuapp.com)
 
 ## Topics Convered ##
 - React
