@@ -41,11 +41,14 @@ A crud based laravel app to learn how to integrate react and other important rea
 <br />
 
 ## Installation ##
-- Clone repo
+- Run ```git clone https://github.com/arifszn/react-laravel.git```
+- Run ```cd react-laravel```
 - Run ```composer install```
-- Setup database and env
-- Run ```php artisan migrate```
-- Run ```php artisan db:seed```
+- Setup database
+- Run ```cp .env.example .env```
+- Run ```php artisan key:generate```
+- Provide db name, username and password in .env
+- Run ```php artisan migrate --seed```
 
 ## Author ##
 Ariful Alam (https://arifszn.github.io)
