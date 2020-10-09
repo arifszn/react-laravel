@@ -6,7 +6,6 @@
     <a href="https://react-redux.js.org/"><img src="https://img.shields.io/static/v1?label=Redux&message=7.2&color=blueviolet" alt="Redux 7.2"></a>
     <a href="https://reacttraining.com/react-router/"><img src="https://img.shields.io/badge/React Router-5.1.2-success" alt="React 16.13.1"></a>
     <a href="https://arifszn.github.io/"><img src="https://img.shields.io/badge/Author-arifszn-critical" alt="Author arifszn"></a>
-    
 </p>
 
 # About #
