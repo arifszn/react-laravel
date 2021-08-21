@@ -52,7 +52,7 @@ A crud based laravel app to learn how to integrate react and other important rea
 
 ## Thank You
 
-[![Stargazers repo roster for @arifszn/ezfolio](https://reporoster.com/stars/arifszn/ezfolio)](https://github.com/arifszn/ezfolio/stargazers)
+[![Stargazers repo roster for @arifszn/react-laravel](https://reporoster.com/stars/arifszn/react-laravel)](https://github.com/arifszn/react-laravel/stargazers)
 
 ## Support
 
