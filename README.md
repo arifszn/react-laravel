@@ -5,11 +5,9 @@
     <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/react-16.13.1-blue" alt="react 16.13.1"></a>
     <a href="https://react-redux.js.org/"><img src="https://img.shields.io/static/v1?label=redux&message=7.2&color=blueviolet" alt="redux 7.2"></a>
     <a href="https://reacttraining.com/react-router/"><img src="https://img.shields.io/badge/react router-5.1.2-success" alt="react router 5.1.2"></a>
-    <a href="https://arifszn.github.io/"><img src="https://img.shields.io/badge/maintainer-arifszn-critical" alt="maintainer arifszn"></a>
 </p>
 
-# About #
-
+## About
 A crud based laravel app to learn how to integrate react and other important react feature in laravel.
 
 > A better laravel react single page app: [Ezfolio](https://github.com/arifszn/ezfolio)
@@ -17,7 +15,7 @@ A crud based laravel app to learn how to integrate react and other important rea
 ## Demo ##
 [https://szn-react-laravel.herokuapp.com](https://szn-react-laravel.herokuapp.com)
 
-## Topics Convered ##
+## Topics Convered
 - React
 - React Redux
 - React Router
@@ -30,7 +28,7 @@ A crud based laravel app to learn how to integrate react and other important rea
 - Laravel Crud
 - Sass
 
-## Screenshots ##
+## Screenshots
 ![alt text](https://raw.githubusercontent.com/arifszn/react-laravel/master/public/assets/images/screenshots/1.png)
 <br />
 <br />
@@ -41,7 +39,7 @@ A crud based laravel app to learn how to integrate react and other important rea
 <br />
 <br />
 
-## Installation ##
+## Installation
 - Run ```git clone https://github.com/arifszn/react-laravel.git```
 - Run ```cd react-laravel```
 - Run ```composer install```
@@ -51,8 +49,17 @@ A crud based laravel app to learn how to integrate react and other important rea
 - Provide db name, username and password in .env
 - Run ```php artisan migrate --seed```
 
-## Author ##
-Ariful Alam (https://arifszn.github.io)
 
-***
-> Feel free to create an issue if you face any problem or need any help.
+## Thank You
+
+[![Stargazers repo roster for @arifszn/ezfolio](https://reporoster.com/stars/arifszn/ezfolio)](https://github.com/arifszn/ezfolio/stargazers)
+
+## Support
+
+Show your ❤️ and support by giving a ⭐.
+
+
+## License
+
+<p>MIT Licensed.</p>
+<p>Copyright © <a href="https://arifszn.github.io">MD. Ariful Alam</a> 2021.</p>
