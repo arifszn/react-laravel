@@ -29,13 +29,13 @@ A crud based laravel app to learn how to integrate react and other important rea
 - Sass
 
 ## Screenshots
-![alt text](https://raw.githubusercontent.com/arifszn/react-laravel/master/public/assets/images/screenshots/1.png)
+![alt text](https://raw.githubusercontent.com/arifszn/react-laravel/main/public/assets/images/screenshots/1.png)
 <br />
 <br />
 
 ***
 
-![alt text](https://raw.githubusercontent.com/arifszn/react-laravel/master/public/assets/images/screenshots/2.png)
+![alt text](https://raw.githubusercontent.com/arifszn/react-laravel/main/public/assets/images/screenshots/2.png)
 <br />
 <br />
 
